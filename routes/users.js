@@ -18,13 +18,15 @@ async function fetchUserData(req, res, next) {
 router.get('/', fetchUserData, (req, res) => {
     const { name, email, location } = req.userData;
     res.send(`
+        <nav>
+            <a href="/">Go back to Home</a><br>
+            <a href="/about">Go to About</a><br>
+            <a href="/contact">Go to Contact</a><br>
+        </nav>
         <h1>Random User Information</h1>
         <p><strong>Name:</strong> ${name.first} ${name.last}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Location:</strong> ${location.city}, ${location.country}</p>
-        <a href="/">Go back to Home</a><br>
-        <a href="/about">Go to About</a><br>
-        <a href="/contact">Go to Contact</a>
     `);
 });
 
